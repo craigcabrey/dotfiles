@@ -3,8 +3,8 @@
 DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 
 function create_or_fail() {
-    SOURCE=$0
-    DEST=$1
+    SOURCE=$1
+    DEST=$2
 
     # Check if a file exists at $DEST and is not a link.
     if [[ -f $DEST && ! -L $DEST ]]; then
