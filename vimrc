@@ -31,6 +31,9 @@ filetype plugin on
 " strategic indentation, please and thank you.
 filetype indent on
 
+" please darling, give us some space.
+set so=5
+
 " no annoying swap or backup files.
 set nobackup
 set nowb
@@ -44,7 +47,12 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 
-" :W will now save using sudo.
+" for the inevitable opening and closing of the same file(s).
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
+" :W will now save using sudo. gone are the days of sudo vim !!.
 command W w !sudo tee % > /dev/null
 
 " use the mouse if we can.
