@@ -1,0 +1,8 @@
+[Unit]
+Description=f.lux daemon
+
+[Service]
+ExecStart=/usr/bin/xflux -z 14623 -nofork
+
+[Install]
+WantedBy=default.target

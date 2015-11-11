@@ -2,7 +2,7 @@
 
 DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 
-function create_or_fail() {
+function link_or_fail() {
     SOURCE=$1
     DEST=$2
 
@@ -15,10 +15,17 @@ function create_or_fail() {
     fi
 }
 
+echo -n "Creating required directory structure..."
+
+mkdir -p "$HOME/.config/systemd/user"
+
 echo -n "Setting up config symlinks... "
 
-create_or_fail "$DIR/bashrc" "$HOME/.bashrc"
-create_or_fail "$DIR/tmux.conf" "$HOME/.tmux.conf"
-create_or_fail "$DIR/vimrc" "$HOME/.vimrc"
+link_or_fail "$DIR/bashrc" "$HOME/.bashrc"
+link_or_fail "$DIR/tmux.conf" "$HOME/.tmux.conf"
+link_or_fail "$DIR/vimrc" "$HOME/.vimrc"
+link_or_fail "$DIR/systemd/xflux.service" "$HOME/.config/systemd/user/"
+
+systemctl --user daemon-reload
 
 echo "done"
