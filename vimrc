@@ -34,6 +34,9 @@ filetype indent on
 " please darling, give us some space.
 set so=5
 
+" menu for figuring out what to edit
+set wildmenu
+
 " no annoying swap or backup files.
 set nobackup
 set nowb
