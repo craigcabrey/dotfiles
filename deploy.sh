@@ -15,16 +15,17 @@ function link_or_fail() {
     fi
 }
 
-echo -n "Creating required directory structure..."
+echo -n "Creating required directory structure... "
 
 mkdir -p "$HOME/.config/systemd/user"
 
-echo -n "Setting up config symlinks... "
+echo -n "setting up config symlinks... "
 
 link_or_fail "$DIR/bashrc" "$HOME/.bashrc"
 link_or_fail "$DIR/tmux.conf" "$HOME/.tmux.conf"
 link_or_fail "$DIR/vimrc" "$HOME/.vimrc"
 link_or_fail "$DIR/systemd/xflux.service" "$HOME/.config/systemd/user/"
+link_or_fail "$DIR/systemd/tmux.service" "$HOME/.config/systemd/user/"
 
 systemctl --user daemon-reload
 
