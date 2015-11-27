@@ -15,11 +15,17 @@ function link_or_fail() {
     fi
 }
 
-echo -n "Creating required directory structure... "
+echo ":: Creating required directory structure... "
 
 mkdir -p "$HOME/.config/systemd/user"
+mkdir -p "$HOME/.vim/bundle"
 
-echo -n "setting up config symlinks... "
+if [ ! -e "$HOME/.vim/bundle/Vundle.vim" ]; then
+  echo ":: Setting up Vundle..."
+  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+fi
+
+echo ":: Setting up config symlinks... "
 
 link_or_fail "$DIR/bashrc" "$HOME/.bashrc"
 link_or_fail "$DIR/tmux.conf" "$HOME/.tmux.conf"
@@ -27,6 +33,9 @@ link_or_fail "$DIR/vimrc" "$HOME/.vimrc"
 link_or_fail "$DIR/systemd/xflux.service" "$HOME/.config/systemd/user/"
 link_or_fail "$DIR/systemd/tmux.service" "$HOME/.config/systemd/user/"
 
-systemctl --user daemon-reload
+echo ":: Performing post setup..."
 
-echo "done"
+systemctl --user daemon-reload
+vim +PluginInstall +qall
+
+echo ":: Done"
