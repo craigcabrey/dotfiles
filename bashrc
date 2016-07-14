@@ -98,9 +98,10 @@ NewLine="\n"
 Jobs="\j"
 
 # the best editor
-EDITOR=vim
+VISUAL=vim
+EDITOR=$VISUAL
 
-export PS1=\\[$Cyan'\u@\h '$Blue$Time12h$Color_Off' $(git branch &>/dev/null;\
+export PS1=$Cyan'\u@\h '$Blue$Time12h$Color_Off' $(git branch &>/dev/null;\
 if [ $? -eq 0 ]; then \
   echo "$(echo `git status` | grep "nothing to commit" > /dev/null 2>&1; \
   if [ "$?" -eq "0" ]; then \
