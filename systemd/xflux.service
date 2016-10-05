@@ -5,8 +5,8 @@ Description=f.lux daemon
 # can't use -nofork here since xflux has a bug that
 # causes 100% cpu usage of a core if it is not given
 # access to a tty or stdin
-ExecStart=/usr/bin/xflux -z 14623
+ExecStart=/usr/bin/xflux -z 94063
 Type=forking
 
 [Install]
-WantedBy=default.target
+WantedBy=graphical.target
