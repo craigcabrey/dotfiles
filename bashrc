@@ -101,6 +101,8 @@ Jobs="\j"
 VISUAL=vim
 EDITOR=$VISUAL
 
+export PATH="~/.gem/ruby/2.3.0/bin:$PATH"
+
 export PS1=$Cyan'\u@\h '$Blue$Time12h$Color_Off' $(git branch &>/dev/null;\
 if [ $? -eq 0 ]; then \
   echo "$(echo `git status` | grep "nothing to commit" > /dev/null 2>&1; \
