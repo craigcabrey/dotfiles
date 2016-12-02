@@ -89,3 +89,9 @@ command W w !sudo tee % > /dev/null
 if has('mouse')
   set mouse=a
 endif
+
+" Because I have to use the shift key all the time and I'm stupid
+:command WQ wq
+:command Wq wq
+:command W w
+:command Q q
