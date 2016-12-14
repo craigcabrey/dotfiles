@@ -82,9 +82,6 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
-" :W will now save using sudo. gone are the days of sudo vim !!.
-command W w !sudo tee % > /dev/null
-
 " use the mouse if we can.
 if has('mouse')
   set mouse=a
