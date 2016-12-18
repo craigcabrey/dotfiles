@@ -32,6 +32,7 @@ link_or_fail "$DIR/tmux.conf" "$HOME/.tmux.conf"
 link_or_fail "$DIR/vimrc" "$HOME/.vimrc"
 link_or_fail "$DIR/systemd/xflux.service" "$HOME/.config/systemd/user/"
 link_or_fail "$DIR/systemd/tmux.service" "$HOME/.config/systemd/user/"
+link_or_fail "$DIR/weechat" "$HOME/.weechat"
 
 echo ":: Performing post setup..."
 
