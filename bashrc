@@ -101,7 +101,10 @@ Jobs="\j"
 VISUAL=vim
 EDITOR=$VISUAL
 
-export PATH="~/.gem/ruby/2.3.0/bin:$PATH"
+if [[ -d "$HOME/bin" ]];
+then
+    export PATH="~/bin:$PATH"
+fi
 
 export PS1=$Cyan'\u@\h $(git branch &>/dev/null;\
 if [ $? -eq 0 ]; then \
