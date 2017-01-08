@@ -96,7 +96,6 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-
 # switch to workspace
 bindsym $mod+1 workspace 1: term
 bindsym $mod+2 workspace 2: www
@@ -185,3 +184,5 @@ bar {
 		urgent_workspace   #dc322f #dc322f #fdf6e3
    }
 }
+
+exec_always --no-startup-id feh --bg-center $HOME/wallpapers/x4mb60eleu3y.jpg
