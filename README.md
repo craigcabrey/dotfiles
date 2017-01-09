@@ -1,6 +1,16 @@
+## Applications
+
+* dmenu
+* google-chrome
+* termite
+
 ## Dependencies
 
+* feh
 * imagemagick
 * pulseaudio
-* ttf-fira-mono
 * xorg-xbacklight
+
+## Resources
+
+* ttf-fira-mono

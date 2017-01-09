@@ -32,6 +32,7 @@ link_or_fail "$DIR/vimrc" "$HOME/.vimrc"
 link_or_fail "$DIR/systemd" "$HOME/.config/systemd"
 link_or_fail "$DIR/i3" "$HOME/.config/i3"
 link_or_fail "$DIR/dunst" "$HOME/.config/dunst"
+link_or_fail "$DIR/termite" "$HOME/.config/termite"
 link_or_fail "$DIR/weechat" "$HOME/.weechat"
 link_or_fail "$DIR/Xresources" "$HOME/.Xresources"
 
