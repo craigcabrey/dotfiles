@@ -108,6 +108,9 @@ then
     export PATH="~/bin:$PATH"
 fi
 
+# disable annoying and useless ctrl-s behavior
+stty -ixon
+
 export PS1=$Cyan'\u@\h $(git branch &>/dev/null;\
 if [ $? -eq 0 ]; then \
   echo "$(echo `git status` | grep "nothing to commit" > /dev/null 2>&1; \
