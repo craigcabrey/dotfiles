@@ -8,6 +8,8 @@ source /usr/share/git/completion/git-prompt.sh
 [[ $- != *i* ]] && return
 
 alias ls='ls --color=auto'
+alias xcopy='xclip -selection clipboard'
+alias xpaste='xclip -selection clipboard -o'
 
 #  Customize BASH PS1 prompt to show current GIT repository and branch.
 #  by Mike Stewart - http://MediaDoneRight.com
