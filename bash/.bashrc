@@ -100,8 +100,8 @@ NewLine="\n"
 Jobs="\j"
 
 # the best editor
-VISUAL=vim
-EDITOR=$VISUAL
+export VISUAL=vim
+export EDITOR=$VISUAL
 
 if [[ -d "$HOME/bin" ]];
 then

@@ -2,20 +2,25 @@
 
 DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 
-function link_or_fail() {
-    SOURCE=$1
-    DEST=$2
+STOW=$(command -v stow)
 
-    # Check if a file exists at $DEST and is not a link.
-    if [[ ( -d $DEST || -f $DEST ) && ! -L $DEST ]]; then
-        echo -e "\nERROR: $DEST already exists and is not a link.";
-        exit 1;
-    else
-        ln -fs $SOURCE $DEST
-    fi
-}
+if [[ $? -ne 0 ]]; then
+  echo "Missing stow"
+  exit 1
+fi
 
-echo ":: Creating required directory structure... "
+echo ":: Running stow..."
+
+$STOW -t $HOME i3
+$STOW -t $HOME bash
+$STOW -t $HOME dunst
+$STOW -t $HOME gtk
+$STOW -t $HOME misc
+$STOW -t $HOME polybar
+$STOW -t $HOME termite
+$STOW -t $HOME tmux
+$STOW -t $HOME vim
+$STOW -t $HOME weechat
 
 mkdir -p "$HOME/.vim/bundle"
 
@@ -24,21 +29,9 @@ if [ ! -e "$HOME/.vim/bundle/Vundle.vim" ]; then
   git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 fi
 
-echo ":: Setting up config symlinks... "
-
-link_or_fail "$DIR/bashrc" "$HOME/.bashrc"
-link_or_fail "$DIR/tmux.conf" "$HOME/.tmux.conf"
-link_or_fail "$DIR/vimrc" "$HOME/.vimrc"
-link_or_fail "$DIR/systemd" "$HOME/.config/systemd"
-link_or_fail "$DIR/i3" "$HOME/.config/i3"
-link_or_fail "$DIR/dunst" "$HOME/.config/dunst"
-link_or_fail "$DIR/termite" "$HOME/.config/termite"
-link_or_fail "$DIR/weechat" "$HOME/.weechat"
-link_or_fail "$DIR/Xresources" "$HOME/.Xresources"
-
+echo ":: Setting up config symlinks..."
 echo ":: Performing post setup..."
 
-systemctl --user daemon-reload
 vim +PluginInstall +qall
 
 echo ":: Done"

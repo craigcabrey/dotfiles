@@ -6,11 +6,17 @@
 
 ## Dependencies
 
+* i3-wm
+* dunst
 * feh
-* imagemagick
+* libnotify
+* polybar
 * pulseaudio
 * xorg-xbacklight
 
 ## Resources
 
 * ttf-fira-mono
+* ttf-font-awesome
+* ttf-overpass
+* xcursor-neutral
