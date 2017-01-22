@@ -7,6 +7,7 @@
 ## Dependencies
 
 * i3-wm
+* i3lock-blur
 * dunst
 * feh
 * libnotify
