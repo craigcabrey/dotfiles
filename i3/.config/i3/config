@@ -166,5 +166,5 @@ bindsym $mod+r mode "resize"
 exec --no-startup-id xrdb $HOME/.Xresources
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
-exec_always --no-startup-id feh --bg-center $HOME/wallpapers/x4mb60eleu3y.jpg
+exec_always --no-startup-id feh --bg-fill $HOME/wallpapers/current
 exec --no-startup-id dunst &
