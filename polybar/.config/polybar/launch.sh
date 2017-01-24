@@ -10,7 +10,9 @@ killall -q polybar
 while pgrep -x polybar >/dev/null; do sleep 1; done
 
 # Set host specific environment variables
-source "$DIR/`hostname`"
+if [[ -f "$DIR/`hostname`" ]]; then
+    source "$DIR/`hostname`"
+fi
 
 if [[ ! -v WLAN_INTERFACE ]]; then
     # Fallback to wlp3s0 since it's so far the most common
