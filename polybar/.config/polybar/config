@@ -70,7 +70,7 @@ label-visible-padding = ${self.label-focused-padding}
 
 [module/wlan]
 type = internal/network
-interface = wlp3s0
+interface = ${env:WLAN_INTERFACE}
 interval = 3.0
 
 format-connected-prefix = "  "
