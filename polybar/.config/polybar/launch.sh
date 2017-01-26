@@ -19,6 +19,9 @@ if [[ ! -v WLAN_INTERFACE ]]; then
     export WLAN_INTERFACE="wlp3s0"
 fi
 
-polybar top &
+for monitor in $(polybar -m | awk '{print $1}' | sed 's/:$//g'); do
+    MONITOR=$monitor polybar top &
+done
+
 
 echo "Bars launched..."
