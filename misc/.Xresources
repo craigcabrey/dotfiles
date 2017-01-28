@@ -8,8 +8,8 @@ Xft.rgba: rgb
 Xcursor.theme: Neutral
 
 ! urxvt settings
-URxvt*font: xft:FiraMono:style=Regular:pixelsize=14
-URxvt*boldFont: xft:FiraMono:style=Bold:pixelsize=14
+URxvt*font: Dina:style=Regular:pixelsize=10
+URxvt*boldFont: Dina:style=Bold:pixelsize=10
 URxvt*letterSpace: -1
 URxvt*scrollBar: false
 URxvt.secondaryScreen: 1

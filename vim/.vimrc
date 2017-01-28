@@ -31,6 +31,9 @@ syntax enable
 " let's not worry about the old days.
 set nocompatible
 
+" move fast, highlight things
+set incsearch
+
 " 80 character files are nice to ready, even
 " on a 1080p display.
 let &colorcolumn="80,".join(range(120,999),",")

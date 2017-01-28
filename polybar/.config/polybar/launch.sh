@@ -20,7 +20,7 @@ if [[ ! -v WLAN_INTERFACE ]]; then
 fi
 
 for monitor in $(polybar -m | awk '{print $1}' | sed 's/:$//g'); do
-    MONITOR=$monitor polybar top &
+    MONITOR=$monitor polybar --reload top &
 done
 
 
