@@ -1,7 +1,11 @@
 #!/bin/bash
 
-DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+UNAME_DARWIN="Darwin"
 
+DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+UNAME=$(uname)
+
+RUBY=$(command -v ruby)
 STOW=$(command -v stow)
 
 if [[ $? -ne 0 ]]; then
@@ -9,18 +13,31 @@ if [[ $? -ne 0 ]]; then
   exit 1
 fi
 
-echo ":: Running stow..."
+echo ":: Running common setup..."
 
-$STOW -t $HOME i3
 $STOW -t $HOME bash
-$STOW -t $HOME dunst
-$STOW -t $HOME gtk
-$STOW -t $HOME misc
-$STOW -t $HOME polybar
-$STOW -t $HOME termite
 $STOW -t $HOME tmux
 $STOW -t $HOME vim
 $STOW -t $HOME weechat
+
+if [[ $UNAME -eq $UNAME_DARWIN ]]; then
+  echo "==> Running Darwin specific setup..."
+
+  BREW=$(command -v brew)
+
+  if [[ ! -f $BREW ]]; then
+    $RUBY -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  fi
+elif [[ $UNAME -eq $UNAME_LINUX ]]; then
+  echo "==> Running Linux specific setup..."
+
+  $STOW -t $HOME i3
+  $STOW -t $HOME dunst
+  $STOW -t $HOME gtk
+  $STOW -t $HOME misc
+  $STOW -t $HOME polybar
+  $STOW -t $HOME termite
+fi
 
 mkdir -p "$HOME/.vim/bundle"
 
