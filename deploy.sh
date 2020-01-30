@@ -37,6 +37,7 @@ elif [[ $UNAME -eq $UNAME_LINUX ]]; then
   $STOW -t $HOME misc
   $STOW -t $HOME polybar
   $STOW -t $HOME termite
+  $STOW -t $HOME gpgagent
 fi
 
 mkdir -p "$HOME/.vim/bundle"
